@@ -23,7 +23,12 @@
   "rules": {
     // for testing if eslint works properly,
     // feel free to remove this if you do not need it
-    "import/no-unused-modules": [0, { "unusedExports": false }]
+    "import/no-unused-modules": [0, { "unusedExports": false }],
+    "jsx-a11y/label-has-associated-control": ["off", {
+        "required": {
+          "some": ["nesting", "id"]
+        }
+      }]
   },
   "settings": {
     "import/parsers": {
