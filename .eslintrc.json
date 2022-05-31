@@ -28,7 +28,9 @@
         "required": {
           "some": ["nesting", "id"]
         }
-      }]
+      }],
+      "@typescript-eslint/no-explicit-any": ["off"],
+      "no-extra-boolean-cast":"off"
   },
   "settings": {
     "import/parsers": {
