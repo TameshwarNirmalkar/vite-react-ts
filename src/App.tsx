@@ -1,6 +1,7 @@
 import { Header } from 'components/Header';
 import { useEffect, useState } from 'react';
 import { getAppointments, getPractitioners } from 'service/rest_api';
+import { createDateGroups, groupArrays } from 'utils/common.utils';
 
 interface PractionersI {
   id: number;
@@ -26,6 +27,8 @@ function App() {
 
   const getAppointmentsApi = async () => {
     const res: Array<AppointmentsI> = await getAppointments();
+    const data = createDateGroups(res);
+    console.log('Date Group', groupArrays(data));
     setAppointmentList(res);
   };
 
@@ -50,6 +53,7 @@ function App() {
             <div className="col">
               <label className="form-label">Practitioner</label>
               <select className="form-select" placeholder="Choose Practitioner">
+                <option value="">Select Practitioner</option>
                 {practionerList.map((el: PractionersI, i: number) => (
                   <option key={i} value={el.id}>
                     {el.name}
